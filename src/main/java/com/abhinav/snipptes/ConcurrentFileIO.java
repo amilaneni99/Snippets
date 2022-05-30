@@ -5,8 +5,6 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
@@ -15,7 +13,6 @@ import java.util.stream.Stream;
 import static java.lang.String.format;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static java.util.Spliterator.CONCURRENT;
 import static java.util.Spliterators.spliterator;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static java.util.concurrent.Executors.newFixedThreadPool;
@@ -23,7 +20,7 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 import static org.apache.commons.lang3.time.StopWatch.createStarted;
 
-public class SnippetsApplication {
+public class ConcurrentFileIO {
     public static void main(String[] args) throws IOException, InterruptedException {
         long startTime = System.currentTimeMillis();
         runMultiThreadCsvReadTest();
